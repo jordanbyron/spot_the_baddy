@@ -1,3 +1,13 @@
 $.getJSON('/baddies.json', function(data){
-  
+  data.baddies.each(function(data){
+    marker = new google.maps.Marker({map:map,position:new google.maps.LatLng(data.lat, data.lng)});
+    
+    infowindow = new google.maps.InfoWindow({
+        content: "#{ escape_javascript(render(:partial => 'baddie'))}".replace(/REC_ID/,data.id)
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
+  });
 });

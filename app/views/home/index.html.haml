@@ -8,16 +8,6 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       var map = new google.maps.Map(document.getElementById("map"), myOptions);
-      
-      var marker = new google.maps.Marker({map:map,position:new google.maps.LatLng(39, -76)});
-      
-      var infowindow = new google.maps.InfoWindow({
-          content: "#{ escape_javascript(render(:partial => 'baddie'))}"
-      });
-
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
-      });
     });
 
 #header
