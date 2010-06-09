@@ -1,3 +1,9 @@
+function music(){
+  OpenWindow=window.open("/musics", "MUSICS", "height=400, width=1000,toolbar=no,scrollbars=no,menubar=no");
+  
+  window.focus();
+}
+
 var time = 30;
 var thisIsTheBaddie;
 

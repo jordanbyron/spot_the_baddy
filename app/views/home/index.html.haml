@@ -1,6 +1,10 @@
 - content_for :header_bottom do
   :javascript
     $(document).ready(function(){
+      #{if flash[:got_away].nil?
+          "music();"
+        end}
+    
       var latlng = new google.maps.LatLng(39.2957589, -76.661596);
       var myOptions = {
         zoom: 10,
@@ -45,3 +49,8 @@
 %div{:align => :center, :style => "clear:both;"}
   %h2
     %blink Real Crimes, Real Baddies, Real Fun.
+  = image_tag "icon_netscape.gif"
+  = image_tag "atwork.gif"
+  = image_tag "eXTReMelogo.gif"
+  %br
+  = image_tag "counterstyles_01.gif"

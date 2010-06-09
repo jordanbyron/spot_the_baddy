@@ -6,4 +6,6 @@ SpotTheBaddie::Application.routes.draw do |map|
   match '/is_baddie/:id' => "home#is_baddie"
   
   match 'reset' => 'home#reset', :as => :reset
+  
+  match '/musics' => "home#musics", :as => :musics
 end
