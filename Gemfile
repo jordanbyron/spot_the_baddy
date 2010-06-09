@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem "turbine"
-gem 'rails', '3.0.0.beta4'
+gem 'rails', '3.0.0.beta3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
