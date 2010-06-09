@@ -3,7 +3,7 @@
     $(document).ready(function(){
       var latlng = new google.maps.LatLng(39.2957589, -76.661596);
       var myOptions = {
-        zoom: 9,
+        zoom: 10,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
@@ -16,9 +16,12 @@
   
 %h1 
   One of these locations was recently a crime scene.  Guess which one!
-  %span{:id => "score"}= "#{session[:score] || 0} Points"
+  - if session[:score].to_i == 0
+    %span{:id => "score"} No Score Yet
+  - else
+    %span{:id => "score"}= "#{session[:score]} Million Points"
 #map
 
 %div{:align => :center}
   %h2
-    Real Crimes, Real Baddies.  Data sourced from spotcrime.com
+    %blink Real Crimes, Real Baddies, Real Fun.

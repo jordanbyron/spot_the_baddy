@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     session[:score] ||= 0
     
     unless params[:id] == "null"
-      session[:score] += 1000000
+      session[:score] += 1
     end
     
     redirect_to root_path
