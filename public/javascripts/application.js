@@ -1,6 +1,7 @@
 var time = 30;
 var thisIsTheBaddie;
 
+
 function countdown(){
   time -= 1;
   
