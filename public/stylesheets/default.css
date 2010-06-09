@@ -21,3 +21,11 @@ body{
 h1{
   color: #ffd500;
 }
+
+h3 a{
+  color: #f00;
+}
+
+#score{
+  float:right;
+}
