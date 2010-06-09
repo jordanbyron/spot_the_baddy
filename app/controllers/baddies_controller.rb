@@ -12,11 +12,11 @@ class BaddiesController < ApplicationController
   # LET'S DO IT ALL IN THE CONTROLLER. WIN!
 
   def baddy_map
-    real_baddy = Baddy.find(:first, :order => "random()").attributes
+    real_baddy = Baddy.find(:first, :order => "random()").to_hash
 
     imposters = (1..4).map { real_baddy.merge(
-      "latitude"  => real_baddy["latitude"] + baddy_fuzz,
-      "longitude" => real_baddy["longitude"] + baddy_fuzz,
+      :latitude  => real_baddy[:latitude] + baddy_fuzz,
+      :longitude => real_baddy[:longitude] + baddy_fuzz,
       :id         => nil) }
   
     real_baddy[:real] = true

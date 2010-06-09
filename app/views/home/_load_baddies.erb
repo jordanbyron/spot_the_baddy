@@ -1,13 +1,27 @@
 $.getJSON('/baddies.json', function(data){
+  var latlngbounds = new google.maps.LatLngBounds();
+  
   $(data.baddies).each(function(id, data){
-    var marker = new google.maps.Marker({map:map,position:new google.maps.LatLng(data.latitude, data.longitude)});
+    if(data.real == true) thisIsTheBaddie = data;
+  });
+  
+  $(data.baddies).each(function(id, data){
+    var latLng = new google.maps.LatLng(data.latitude, data.longitude);
+    var marker = new google.maps.Marker({map:map,position:latLng});
     
     var infowindow = new google.maps.InfoWindow({
         content: '<%= escape_javascript(render(:partial => 'baddie')) %>'.replace(/REC_ID/,data.id)
     });
 
     google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map,marker);
+      window.location = "/is_baddie/" + data.id + "?baddy_id=" + thisIsTheBaddie.id;
     });
+    
+    latlngbounds.extend(latLng);
   });
+  
+  map.setCenter( latlngbounds.getCenter( ), 10 );
+  
+  window.setInterval('countdown()', 1000);
+  
 });

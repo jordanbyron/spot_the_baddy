@@ -5,7 +5,8 @@
       var myOptions = {
         zoom: 10,
         center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false
       };
       var map = new google.maps.Map(document.getElementById("map"), myOptions);
       #{render :partial => "load_baddies"}
@@ -13,13 +14,25 @@
 
 #header
   = image_tag "header.png"
+  - if flash[:got_away] == true
+    #baddy
+      %h1 The Baddy Got Away!
+      = image_tag "baddy.gif"
+      %h1= flash[:address]
+      
+  #countdown 30
+    
   
 %h1 
-  One of these locations was recently a crime scene.  Guess which one!
+  %span{:id => "hint"} One of these locations was recently a crime scene.  Guess which one!
   - if session[:score].to_i == 0
-    %span{:id => "score"} No Score Yet
+    %span{:id => "score"}
+      No Score Yet
+      = button_to "Reset", reset_path
   - else
-    %span{:id => "score"}= "#{session[:score]} Million Points"
+    %span{:id => "score"}
+      = "#{session[:score]} Million Points"
+      = button_to "Reset", reset_path
 #map
 
 %div{:align => :center}

@@ -4,4 +4,6 @@ SpotTheBaddie::Application.routes.draw do |map|
   resource :baddies
   
   match '/is_baddie/:id' => "home#is_baddie"
+  
+  match 'reset' => 'home#reset', :as => :reset
 end

@@ -9,9 +9,23 @@ body{
   background-color: #ff0087;
   padding: 20px;
   border: 10px solid #00bb48;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
 
-#contents
+#header{
+  position: relative;
+}
+
+#baddy{
+  position: absolute;
+  right: 1px;
+  top: -10px;
+  text-align:center;
+  background-color: #ff0087;
+  padding: 20px;
+  height: 220px;
+}
 
 #map{
   width: 100%;
@@ -33,4 +47,26 @@ h3 a{
 
 #score{
   float:right;
+}
+
+#score input{
+  margin-left: 10px;
+}
+
+form div, form{
+  display:inline-block;
+}
+
+input{
+  font-size: 20px;
+}
+
+#countdown{
+  position:absolute;
+  padding: 20px;
+  left: 130px;
+  top: 5px;
+  text-align: center;
+  font-size: 48px;
+  color: #f00;
 }
