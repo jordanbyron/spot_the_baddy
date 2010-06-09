@@ -14,12 +14,7 @@
 
 #header
   = image_tag "header.png"
-  - if flash[:got_away] == true
-    #baddy
-      %h1 The Baddy Got Away!
-      = image_tag "baddy.gif"
-      %h1= flash[:address]
-      
+  
   #countdown 30
     
   
@@ -33,8 +28,20 @@
     %span{:id => "score"}
       = "#{session[:score]} Million Points"
       = button_to "Reset", reset_path
+
+#baddy
+  - if flash[:got_away] == true
+    %h1 The Baddy Got Away!
+    = image_tag "baddy.gif"
+    %h1= link_to "#{flash[:baddy_info].baddygory.name} at #{flash[:baddy_info].address}", flash[:baddy_info].link, :target => "_blank"
+  - elsif flash[:got_away] == false
+    %h1 You got 'em. Good job buddy!
+    = image_tag "coppers.gif"
+    %h1= link_to "#{flash[:baddy_info].baddygory.name} at #{flash[:baddy_info].address}", flash[:baddy_info].link, :target => "_blank"
+  - else
+    = image_tag "pp.png", :style => "margin-top: 20px;"
 #map
 
-%div{:align => :center}
+%div{:align => :center, :style => "clear:both;"}
   %h2
     %blink Real Crimes, Real Baddies, Real Fun.

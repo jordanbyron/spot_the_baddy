@@ -18,17 +18,23 @@ body{
 }
 
 #baddy{
-  position: absolute;
+/*  position: absolute;
   right: 1px;
-  top: -10px;
+  top: -10px;*/
   text-align:center;
   background-color: #ff0087;
   padding: 20px;
-  height: 220px;
+  height: 200px;
+  width: 300px;
+  float:right;
+}
+
+#baddy h1 a{
+  color: #ffd500;
 }
 
 #map{
-  width: 100%;
+  width: 600px;
   height: 300px;
 }
 

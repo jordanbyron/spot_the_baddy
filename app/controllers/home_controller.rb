@@ -6,11 +6,13 @@ class HomeController < ApplicationController
   def is_baddie
     session[:score] ||= 0
     
+    flash[:baddy_info] = Baddy.find(params[:baddy_id])
+    
     unless params[:id] == "null"
       session[:score] += 1
+      flash[:got_away] = false
     else
       flash[:got_away] = true
-      flash[:address] = Baddy.find(params[:baddy_id]).address
     end
     
     redirect_to root_path

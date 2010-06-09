@@ -4,6 +4,8 @@ var thisIsTheBaddie;
 function countdown(){
   time -= 1;
   
+  if(time < 0) return;
+  
   $("#countdown").text(time);
   
   if(time == 0){
