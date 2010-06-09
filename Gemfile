@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-gem "turbine"
 gem 'rails', '3.0.0.beta3'
 
 # Bundle edge Rails instead:

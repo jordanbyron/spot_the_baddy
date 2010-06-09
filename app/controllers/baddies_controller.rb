@@ -16,7 +16,8 @@ class BaddiesController < ApplicationController
 
     imposters = (1..4).map { real_baddy.merge(
       "latitude"  => real_baddy["latitude"] + baddy_fuzz,
-      "longitude" => real_baddy["longitude"] + baddy_fuzz) }
+      "longitude" => real_baddy["longitude"] + baddy_fuzz,
+      :id         => nil) }
   
     real_baddy[:real] = true
 
@@ -24,6 +25,6 @@ class BaddiesController < ApplicationController
   end
 
   def baddy_fuzz
-    rand(0.25)*(rand(2) == 1 ? 1 : - 1)
+    rand*0.125*(rand(2) == 1 ? 1 : - 1)
   end
 end

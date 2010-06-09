@@ -8,6 +8,7 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       var map = new google.maps.Map(document.getElementById("map"), myOptions);
+      #{render :partial => "load_baddies"}
     });
 
 #header
@@ -15,7 +16,7 @@
   
 %h1 
   One of these locations was recently a crime scene.  Guess which one!
-  %span{:id => "score"} 0 Points
+  %span{:id => "score"}= "#{session[:score] || 0} Points"
 #map
 
 %div{:align => :center}
