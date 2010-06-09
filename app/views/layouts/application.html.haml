@@ -1,0 +1,16 @@
+!!! Strict
+%html
+  %head
+    %title Spot The Baddie!
+    = stylesheet_link_tag "default.css"
+    
+    = javascript_include_tag "jquery-1.4.2.min.js", "jquery-ui-1.8.1.js", "application.js"
+    = javascript_include_tag 'rails'
+
+    = csrf_meta_tag
+    
+    = yield(:header_bottom)
+
+  %body
+    #contents
+      = yield
