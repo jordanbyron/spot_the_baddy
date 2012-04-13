@@ -4,4 +4,5 @@ Real Crimes, Real Baddies, Real Fun.
 
 ---
 
-Created for the 2010 BohConf Programming Contest
+Expertly created for the 2010 BohConf Programming Contest by 
+[Gregory Brown](https://github.com/sandal) and [Jordan Byron](https://github.com/jordanbyron)
